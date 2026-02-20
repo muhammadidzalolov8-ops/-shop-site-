@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Shop</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>Мужская одежда</h1>
+<div id="shop"></div>
+
+<script>
+fetch("products.json")
+.then(res => res.json())
+.then(data => {
+
+const shop = document.getElementById("shop");
+
+data.forEach(p => {
+
+shop.innerHTML += `
+<div class="card">
+<img src="${p.image}" width="200">
+<h2>${p.name}</h2>
+<p>${p.price}</p>
+<a href="https://wa.me/">Заказать</a>
+</div>
+`;
+
+});
+});
+</script>
+
+</body>
+</html>
